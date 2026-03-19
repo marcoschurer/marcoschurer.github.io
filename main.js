@@ -22,11 +22,18 @@
   window.addEventListener('scroll', function () {
     var current = '';
     var navHeight = nav.offsetHeight;
+    var atBottom = (window.innerHeight + window.scrollY) >= document.body.scrollHeight - 2;
     sections.forEach(function (s) {
+      if (s.offsetParent === null) return; // skip hidden sections
       if (window.scrollY >= s.offsetTop - navHeight - 40) {
         current = s.id;
       }
     });
+    // If scrolled to the very bottom, activate the last visible section
+    if (atBottom) {
+      var visible = Array.from(sections).filter(function (s) { return s.offsetParent !== null; });
+      if (visible.length) current = visible[visible.length - 1].id;
+    }
     navLinks.forEach(function (link) {
       link.classList.toggle('active', link.getAttribute('href') === '#' + current);
     });
