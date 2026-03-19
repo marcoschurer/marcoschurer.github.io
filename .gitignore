@@ -1,0 +1,5 @@
+.DS_Store
+*.log
+.env
+brand-style-guide.md
+portfolio_mockup_v3.html
