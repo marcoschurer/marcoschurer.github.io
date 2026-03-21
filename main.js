@@ -40,30 +40,13 @@
   });
 
   /* --------------------------------------------------------
-     CV ACCORDION — one open at a time per group
+     CV ACCORDION — each item toggles independently
      -------------------------------------------------------- */
-  document.querySelectorAll('.cv-item-header').forEach(function (header) {
-    header.addEventListener('click', function () {
-      var item = header.closest('.cv-item');
-      var wasOpen = item.classList.contains('open');
-      var group = item.closest('.cv-section-group');
-      group.querySelectorAll('.cv-item.open').forEach(function (el) {
-        el.classList.remove('open');
-        el.querySelector('.cv-item-header').setAttribute('aria-expanded', 'false');
-      });
-      if (!wasOpen) {
-        item.classList.add('open');
-        header.setAttribute('aria-expanded', 'true');
-      }
-    });
-
-    header.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        header.click();
-      }
-    });
-  });
+  // Global function for onclick handlers in HTML
+  window.toggleCV = function (header) {
+    var item = header.parentElement;
+    item.classList.toggle('open');
+  };
 
   /* --------------------------------------------------------
      MOBILE NAV TOGGLE

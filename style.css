@@ -394,7 +394,7 @@ section + section {
 }
 
 .cv-item.open .cv-item-body {
-  max-height: 500px;
+  max-height: 800px;
   padding-bottom: 1rem;
 }
 
@@ -411,6 +411,8 @@ section + section {
 }
 
 .cv-item-content p + p { margin-top: 6px; }
+
+.detail-label { font-weight: 500; color: var(--color-text); }
 
 /* Skills as tags */
 .cv-skills {
