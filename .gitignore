@@ -4,3 +4,11 @@
 brand-style-guide.md
 portfolio_mockup_v3.html
 .claude/
+.DS_Store
+*.log
+.env
+.claude/
+portfolio_mockup_v3.html
+brand-style-guide.md
+TASK_portfolio_website_build_v2.md
+UPDATE_cv_section.md
