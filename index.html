@@ -61,7 +61,6 @@
 <nav id="nav" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <span class="monogram">MSD</span>
       <span class="nav-name">Marco Schürer Drews</span>
     </a>
     <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
@@ -73,7 +72,6 @@
       <li><a href="#about" class="active">About</a></li>
       <li><a href="#cv">CV</a></li>
       <li><a href="#writing">Writing</a></li>
-      <!-- Projects nav item hidden until section is active -->
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -83,259 +81,293 @@
      HERO
      ============================================================ -->
 <div class="hero" role="banner">
-  <h1>Marco Schürer Drews</h1>
-  <p class="subtitle">AI Governance & Technology Policy</p>
-  <hr class="clay-rule">
-  <p class="tagline">
-    MPA from UC Berkeley's Goldman School of Public Policy. I study how governance systems are designed, who they serve, and what happens when they break.
-  </p>
+  <!-- Constellation SVG -->
+  <svg class="constellation" viewBox="0 0 240 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="60" y1="40" x2="140" y2="80" class="c-line c-line-1"/>
+    <line x1="140" y1="80" x2="200" y2="50" class="c-line c-line-2"/>
+    <line x1="140" y1="80" x2="100" y2="160" class="c-line c-line-3"/>
+    <line x1="100" y1="160" x2="180" y2="200" class="c-line c-line-4"/>
+    <line x1="180" y1="200" x2="120" y2="260" class="c-line c-line-5"/>
+    <line x1="60" y1="40" x2="100" y2="160" class="c-line c-line-6"/>
+    <circle cx="60" cy="40" r="3.5" class="c-node c-node-indigo c-float-1"/>
+    <circle cx="140" cy="80" r="3" class="c-node c-node-clay c-float-2"/>
+    <circle cx="200" cy="50" r="4" class="c-node c-node-indigo c-float-3"/>
+    <circle cx="100" cy="160" r="3.5" class="c-node c-node-indigo c-float-4"/>
+    <circle cx="180" cy="200" r="3" class="c-node c-node-clay c-float-5"/>
+    <circle cx="120" cy="260" r="4" class="c-node c-node-indigo c-float-6"/>
+    <circle cx="40" cy="120" r="3" class="c-node c-node-clay c-float-7"/>
+  </svg>
+  <div class="hero-content">
+    <h1>Marco<br>Schürer Drews</h1>
+    <p class="subtitle">AI Governance & Technology Policy</p>
+    <hr class="clay-rule">
+    <p class="tagline">MPA · UC Berkeley Goldman School of Public Policy</p>
+  </div>
 </div>
 
 <!-- ============================================================
      ABOUT
      ============================================================ -->
-<section id="about" class="fade-in-section" aria-label="About">
+<section id="about" aria-label="About">
   <p class="section-label">About</p>
-  <p class="section-body">
-    Eight years across UN agencies, international NGOs, venture capital, tech, and academia — each context sharpening the same question: who gets to shape the rules of emerging technologies, and who bears the cost when those rules fail?
-  </p>
-  <p class="section-body" style="margin-top: 10px;">
-    I bring a cross-sector lens to AI governance, grounded in international development practice and trained in the institutional mechanics of policy design. Trilingual in English, Spanish, and German. Dual US/EU work eligibility.
-  </p>
+  <blockquote class="pull-quote fade-up">
+    Who gets to shape the rules of emerging technologies — and who bears the cost when those rules fail?
+  </blockquote>
+  <div class="fade-up">
+    <p class="section-body">
+      Eight years across UN agencies, international NGOs, venture capital, tech, and academia — each context sharpening the same question.
+    </p>
+    <p class="section-body" style="margin-top: 10px;">
+      I bring a cross-sector lens to AI governance, grounded in international development practice and trained in the institutional mechanics of policy design.
+    </p>
+    <p class="mono-line">Trilingual in English, Spanish, and German. Dual US/EU work eligibility.</p>
+  </div>
 </section>
 
 <!-- ============================================================
-     CV — Interactive accordion
+     CV — Interactive accordion with timeline
      ============================================================ -->
-<section id="cv" class="fade-in-section" aria-label="Curriculum vitae">
-  <p class="section-label">Curriculum vitae</p>
-  <h2 class="section-title">Background</h2>
-
-  <!-- ==================== EDUCATION ==================== -->
-  <div class="cv-section-group">
-    <p class="cv-group-label">Education</p>
-
-    <div class="cv-item">
-      <div class="cv-item-header" onclick="toggleCV(this)">
-        <span class="cv-item-title">MPA, Tech Policy & Applied Data Science | UC Berkeley</span>
-        <span class="cv-item-meta">2024–2025 <span class="cv-toggle">+</span></span>
-      </div>
-      <div class="cv-item-body"><div class="cv-item-content">
-        <p class="location">Goldman School of Public Policy · Berkeley, CA</p>
-        <p>Tech Policy Certificate. Applied Data Science focus. Departmental Scholarship Recipient.</p>
-        <p>Capstone: Designed the Connectivity+ framework for humanitarian digital infrastructure in the Philippines (NetHope).</p>
-        <p>Teaching Assistant: US-Mexico Public Policy Relations; US Immigration Policy (2024–2025).</p>
-        <p>Coursework: Policy Analysis, Computational Social Sciences, Designing Tech for Good Initiatives, Business Models for Social Impact, Tech Policy & AI Policy.</p>
-      </div></div>
+<section id="cv" aria-label="Curriculum vitae">
+  <div class="cv-heading-row">
+    <div>
+      <p class="section-label">Curriculum vitae</p>
+      <h2 class="section-title">Background</h2>
     </div>
-
-    <div class="cv-item">
-      <div class="cv-item-header" onclick="toggleCV(this)">
-        <span class="cv-item-title">M.Sc., International Development | Wageningen University & Research</span>
-        <span class="cv-item-meta">2018–2020 <span class="cv-toggle">+</span></span>
-      </div>
-      <div class="cv-item-body"><div class="cv-item-content">
-        <p class="location">Wageningen, Netherlands · Coursework completed; thesis deferred</p>
-        <p>Specialization in Policy and Governance of Development. Specialization in Sustainable Development Diplomacy.</p>
-        <p>Colfuturo Scholarship Recipient (Government of Colombia, 2017–2019).</p>
-        <p>Focus: Power dynamics, institutions, and policies influencing development processes; governance, inequality, and sustainability in global contexts.</p>
-      </div></div>
-    </div>
-
-    <div class="cv-item">
-      <div class="cv-item-header" onclick="toggleCV(this)">
-        <span class="cv-item-title">M.A., Environment, Development & Peace | University for Peace</span>
-        <span class="cv-item-meta">2014–2015 <span class="cv-toggle">+</span></span>
-      </div>
-      <div class="cv-item-body"><div class="cv-item-content">
-        <p class="location">Ciudad Colón, Costa Rica · UN-mandated institution · Grade: 9.1/10</p>
-        <p>Tuition Scholarship Recipient (50%).</p>
-        <p>Focus: Intersections of environmental sustainability, human security, and development; peacebuilding, climate resilience, and equitable solutions to global challenges.</p>
-      </div></div>
-    </div>
-
-    <div class="cv-item">
-      <div class="cv-item-header" onclick="toggleCV(this)">
-        <span class="cv-item-title">B.A., International Relations | Universidad Latina de Costa Rica</span>
-        <span class="cv-item-meta">2011–2014 <span class="cv-toggle">+</span></span>
-      </div>
-      <div class="cv-item-body"><div class="cv-item-content">
-        <p class="location">Costa Rica · Grade: 86.6/100</p>
-        <p>International Public Law, Political Science, Economic Theory.</p>
-        <p>International Relations Student Association — 2x Student Representative to National Student Table.</p>
-      </div></div>
+    <div class="cv-heading-buttons">
+      <a href="cv/Marco_Schurer_Drews_CV.pdf" class="btn-primary btn-sm" target="_blank">Download CV (PDF)</a>
+      <a href="https://linkedin.com/in/marco-schurer" class="btn-outline btn-sm" target="_blank">LinkedIn</a>
     </div>
   </div>
 
-  <!-- ==================== EXPERIENCE ==================== -->
-  <div class="cv-section-group">
-    <p class="cv-group-label">Experience</p>
+  <div class="cv-timeline">
 
-    <div class="cv-item">
-      <div class="cv-item-header" onclick="toggleCV(this)">
-        <span class="cv-item-title">Capstone Consultant | NetHope</span>
-        <span class="cv-item-meta">2025 <span class="cv-toggle">+</span></span>
+    <!-- ==================== EDUCATION ==================== -->
+    <div class="cv-section-group">
+      <p class="cv-group-label">Education</p>
+
+      <div class="cv-item">
+        <div class="cv-item-header" onclick="toggleCV(this)">
+          <span class="cv-item-title">MPA, Tech Policy & Applied Data Science | UC Berkeley</span>
+          <span class="cv-item-meta">2024–2025 <span class="cv-toggle">+</span></span>
+        </div>
+        <div class="cv-item-body"><div class="cv-item-content">
+          <p class="location">Goldman School of Public Policy · Berkeley, CA</p>
+          <p>Tech Policy Certificate. Applied Data Science focus. Departmental Scholarship Recipient.</p>
+          <p>Capstone: Designed the Connectivity+ framework for humanitarian digital infrastructure in the Philippines (NetHope).</p>
+          <p>Teaching Assistant: US-Mexico Public Policy Relations; US Immigration Policy (2024–2025).</p>
+          <p>Coursework: Policy Analysis, Computational Social Sciences, Designing Tech for Good Initiatives, Business Models for Social Impact, Tech Policy & AI Policy.</p>
+        </div></div>
       </div>
-      <div class="cv-item-body"><div class="cv-item-content">
-        <p class="location">Berkeley, CA (Remote) · Feb 2025 – Jun 2025</p>
-        <p>Designed a systems-based policy intervention to strengthen emergency response in the Philippines through the Connectivity+ framework.</p>
-        <p>Conducted comprehensive stakeholder mapping and disaster case analysis to identify gaps in digital infrastructure resilience.</p>
-        <p>Performed policy evaluation to propose scalable solutions for inclusive and resilient digital infrastructure in disaster contexts.</p>
-        <p>Synthesized findings into actionable recommendations for NetHope's humanitarian technology strategy.</p>
-      </div></div>
+
+      <div class="cv-item">
+        <div class="cv-item-header" onclick="toggleCV(this)">
+          <span class="cv-item-title">M.Sc., International Development | Wageningen University & Research</span>
+          <span class="cv-item-meta">2018–2020 <span class="cv-toggle">+</span></span>
+        </div>
+        <div class="cv-item-body"><div class="cv-item-content">
+          <p class="location">Wageningen, Netherlands · Coursework completed; thesis deferred</p>
+          <p>Specialization in Policy and Governance of Development. Specialization in Sustainable Development Diplomacy.</p>
+          <p>Colfuturo Scholarship Recipient (Government of Colombia, 2017–2019).</p>
+          <p>Focus: Power dynamics, institutions, and policies influencing development processes; governance, inequality, and sustainability in global contexts.</p>
+        </div></div>
+      </div>
+
+      <div class="cv-item">
+        <div class="cv-item-header" onclick="toggleCV(this)">
+          <span class="cv-item-title">M.A., Environment, Development & Peace | University for Peace</span>
+          <span class="cv-item-meta">2014–2015 <span class="cv-toggle">+</span></span>
+        </div>
+        <div class="cv-item-body"><div class="cv-item-content">
+          <p class="location">Ciudad Colón, Costa Rica · UN-mandated institution · Grade: 9.1/10</p>
+          <p>Tuition Scholarship Recipient (50%).</p>
+          <p>Focus: Intersections of environmental sustainability, human security, and development; peacebuilding, climate resilience, and equitable solutions to global challenges.</p>
+        </div></div>
+      </div>
+
+      <div class="cv-item">
+        <div class="cv-item-header" onclick="toggleCV(this)">
+          <span class="cv-item-title">B.A., International Relations | Universidad Latina de Costa Rica</span>
+          <span class="cv-item-meta">2011–2014 <span class="cv-toggle">+</span></span>
+        </div>
+        <div class="cv-item-body"><div class="cv-item-content">
+          <p class="location">Costa Rica · Grade: 86.6/100</p>
+          <p>International Public Law, Political Science, Economic Theory.</p>
+          <p>International Relations Student Association — 2x Student Representative to National Student Table.</p>
+        </div></div>
+      </div>
     </div>
 
-    <div class="cv-item">
-      <div class="cv-item-header" onclick="toggleCV(this)">
-        <span class="cv-item-title">Teaching Assistant | UC Berkeley, Goldman School</span>
-        <span class="cv-item-meta">2024–2025 <span class="cv-toggle">+</span></span>
+    <!-- ==================== EXPERIENCE ==================== -->
+    <div class="cv-section-group">
+      <p class="cv-group-label">Experience</p>
+
+      <div class="cv-item">
+        <div class="cv-item-header" onclick="toggleCV(this)">
+          <span class="cv-item-title">Capstone Consultant | NetHope</span>
+          <span class="cv-item-meta">2025 <span class="cv-toggle">+</span></span>
+        </div>
+        <div class="cv-item-body"><div class="cv-item-content">
+          <p class="location">Berkeley, CA (Remote) · Feb 2025 – Jun 2025</p>
+          <p>Designed a systems-based policy intervention to strengthen emergency response in the Philippines through the Connectivity+ framework.</p>
+          <p>Conducted comprehensive stakeholder mapping and disaster case analysis to identify gaps in digital infrastructure resilience.</p>
+          <p>Performed policy evaluation to propose scalable solutions for inclusive and resilient digital infrastructure in disaster contexts.</p>
+          <p>Synthesized findings into actionable recommendations for NetHope's humanitarian technology strategy.</p>
+        </div></div>
       </div>
-      <div class="cv-item-body"><div class="cv-item-content">
-        <p class="location">Berkeley, CA</p>
-        <p>Consecutive TA for graduate-level courses: "US-Mexico Public Policy Relations" and "US Immigration Policy."</p>
-        <p>Provided detailed feedback and grading for 60+ graduate and undergraduate students.</p>
-        <p>Supported pedagogical design, course management, and curriculum development. Facilitated discussions on bilateral policy dynamics and immigration governance frameworks.</p>
-      </div></div>
+
+      <div class="cv-item">
+        <div class="cv-item-header" onclick="toggleCV(this)">
+          <span class="cv-item-title">Teaching Assistant | UC Berkeley, Goldman School</span>
+          <span class="cv-item-meta">2024–2025 <span class="cv-toggle">+</span></span>
+        </div>
+        <div class="cv-item-body"><div class="cv-item-content">
+          <p class="location">Berkeley, CA</p>
+          <p>Consecutive TA for graduate-level courses: "US-Mexico Public Policy Relations" and "US Immigration Policy."</p>
+          <p>Provided detailed feedback and grading for 60+ graduate and undergraduate students.</p>
+          <p>Supported pedagogical design, course management, and curriculum development. Facilitated discussions on bilateral policy dynamics and immigration governance frameworks.</p>
+        </div></div>
+      </div>
+
+      <div class="cv-item">
+        <div class="cv-item-header" onclick="toggleCV(this)">
+          <span class="cv-item-title">Operations Associate & Researcher | Gaingels VC</span>
+          <span class="cv-item-meta">2023–2024 <span class="cv-toggle">+</span></span>
+        </div>
+        <div class="cv-item-body"><div class="cv-item-content">
+          <p class="location">Remote · United States</p>
+          <p>Designed and implemented compliance tracking systems for investor relations and portfolio management.</p>
+          <p>Developed investor communication workflows that improved operational efficiency and stakeholder reporting.</p>
+          <p>Conducted research to support investment decision-making and due diligence processes.</p>
+        </div></div>
+      </div>
+
+      <div class="cv-item">
+        <div class="cv-item-header" onclick="toggleCV(this)">
+          <span class="cv-item-title">Grant Writer & Policy Advisor | Herencia VL</span>
+          <span class="cv-item-meta">2022–2023 <span class="cv-toggle">+</span></span>
+        </div>
+        <div class="cv-item-body"><div class="cv-item-content">
+          <p class="location">Bogotá, Colombia</p>
+          <p>Developed and submitted 10+ competitive grant proposals to international donors and foundations.</p>
+          <p>Strengthened 5+ public policy initiatives through strategic cross-sectoral partnerships.</p>
+          <p>Provided policy advisory support connecting civil society organizations with government stakeholders.</p>
+          <p>Built stakeholder engagement strategies to advance cultural heritage and community development objectives.</p>
+        </div></div>
+      </div>
+
+      <div class="cv-item">
+        <div class="cv-item-header" onclick="toggleCV(this)">
+          <span class="cv-item-title">Coordinator | UNESCO Chair on Freedom of Expression, Universidad de Los Andes</span>
+          <span class="cv-item-meta">2021 <span class="cv-toggle">+</span></span>
+        </div>
+        <div class="cv-item-body"><div class="cv-item-content">
+          <p class="location">Bogotá, Colombia</p>
+          <p>Boosted public participation in Chair activities by 30% through targeted outreach and communications strategy.</p>
+          <p>Coordinated academic events, research outputs, and multi-stakeholder communications.</p>
+          <p>Managed relationships with university administration, civil society partners, and international networks.</p>
+          <p>Supported research initiatives on media freedom, digital rights, and freedom of expression in Latin America.</p>
+        </div></div>
+      </div>
+
+      <div class="cv-item">
+        <div class="cv-item-header" onclick="toggleCV(this)">
+          <span class="cv-item-title">TRMS Specialist | Amazon</span>
+          <span class="cv-item-meta">2017–2018 <span class="cv-toggle">+</span></span>
+        </div>
+        <div class="cv-item-body"><div class="cv-item-content">
+          <p class="location">San José, Costa Rica</p>
+          <p>Investigated chargebacks and transactional risks across the European market, ensuring compliance and reducing financial exposure.</p>
+          <p>Designed and implemented new Standard Operating Procedures (SOPs) that streamlined fraud investigation workflows.</p>
+          <p>Improved cross-market consistency in risk assessment and fraud prevention protocols.</p>
+          <p>Collaborated with cross-functional teams to enhance transaction monitoring systems.</p>
+        </div></div>
+      </div>
+
+      <div class="cv-item">
+        <div class="cv-item-header" onclick="toggleCV(this)">
+          <span class="cv-item-title">Programme Assistant | UNEP, Regional Office for Latin America and the Caribbean</span>
+          <span class="cv-item-meta">2016–2017 <span class="cv-toggle">+</span></span>
+        </div>
+        <div class="cv-item-body"><div class="cv-item-content">
+          <p class="location">Panama City, Panama</p>
+          <p>Drafted rules of operation for regional chemicals and waste governance frameworks.</p>
+          <p>Authored 10+ technical documents supporting environmental policy alignment across Latin America and the Caribbean.</p>
+          <p>Led stakeholder engagement processes with ministry-level officials from member states.</p>
+          <p>Supported high-level intergovernmental meetings and regional environmental negotiations.</p>
+          <p>Contributed to implementation strategies for multilateral environmental agreements.</p>
+        </div></div>
+      </div>
+
+      <div class="cv-item">
+        <div class="cv-item-header" onclick="toggleCV(this)">
+          <span class="cv-item-title">Graduate Research Assistant | WWF, Global and Regional Policy Unit</span>
+          <span class="cv-item-meta">2015 <span class="cv-toggle">+</span></span>
+        </div>
+        <div class="cv-item-body"><div class="cv-item-content">
+          <p class="location">Gland, Switzerland</p>
+          <p>Produced 20+ policy briefs to support WWF's advocacy at UN SDG and G20 summits.</p>
+          <p>Co-authored internal science-policy manual on environmental governance.</p>
+          <p>Analyzed global policy frameworks for biodiversity, climate, and sustainable development.</p>
+          <p>Supported research on multi-stakeholder governance mechanisms in environmental policy.</p>
+        </div></div>
+      </div>
+
+      <div class="cv-item">
+        <div class="cv-item-header" onclick="toggleCV(this)">
+          <span class="cv-item-title">Earlier roles | Costa Rica</span>
+          <span class="cv-item-meta">2015–2016 <span class="cv-toggle">+</span></span>
+        </div>
+        <div class="cv-item-body"><div class="cv-item-content">
+          <p><span class="detail-label">Analyst & Interpreter — GIZ-DABIO (German International Cooperation):</span> Analytical and interpretation support for German–Costa Rican bilateral cooperation on biodiversity conservation. Trilingual facilitation (English, Spanish, German).</p>
+          <p><span class="detail-label">Research Assistant — IIHR/CAPEL (Inter-American Institute of Human Rights):</span> Research on electoral governance, democratic participation, and institutional strengthening in Latin America.</p>
+          <p><span class="detail-label">Auditor Assistant — Sustainable Agriculture Network (SAN):</span> On-site certification audits evaluating agricultural operations against SAN sustainability standards for Rainforest Alliance certification.</p>
+        </div></div>
+      </div>
     </div>
 
-    <div class="cv-item">
-      <div class="cv-item-header" onclick="toggleCV(this)">
-        <span class="cv-item-title">Operations Associate & Researcher | Gaingels VC</span>
-        <span class="cv-item-meta">2023–2024 <span class="cv-toggle">+</span></span>
+    <!-- ==================== CERTIFICATIONS ==================== -->
+    <div class="cv-section-group">
+      <p class="cv-group-label">Certifications & professional development</p>
+
+      <div class="cv-item">
+        <div class="cv-item-header" onclick="toggleCV(this)">
+          <span class="cv-item-title">AGI Strategy | BlueDot Impact</span>
+          <span class="cv-item-meta">2026 <span class="cv-toggle">+</span></span>
+        </div>
+        <div class="cv-item-body"><div class="cv-item-content">
+          <p>30-hour intensive: AI capability forecasting, threat modeling, defence-in-depth frameworks.</p>
+        </div></div>
       </div>
-      <div class="cv-item-body"><div class="cv-item-content">
-        <p class="location">Remote · United States</p>
-        <p>Designed and implemented compliance tracking systems for investor relations and portfolio management.</p>
-        <p>Developed investor communication workflows that improved operational efficiency and stakeholder reporting.</p>
-        <p>Conducted research to support investment decision-making and due diligence processes.</p>
-      </div></div>
+
+      <div class="cv-item">
+        <div class="cv-item-header" onclick="toggleCV(this)">
+          <span class="cv-item-title">Additional Certifications</span>
+          <span class="cv-item-meta">2017–2021 <span class="cv-toggle">+</span></span>
+        </div>
+        <div class="cv-item-body"><div class="cv-item-content">
+          <p><span class="detail-label">Project DPro</span> — PM4NGOs (2021)</p>
+          <p><span class="detail-label">Gestión Pública para el Desarrollo</span> — IDBX, Inter-American Development Bank (2020)</p>
+          <p><span class="detail-label">Diplomado en Victimología</span> — OIM/USAID (2020)</p>
+          <p><span class="detail-label">Evaluating Social Program Impact</span> — MITx-JPAL (2017)</p>
+        </div></div>
+      </div>
     </div>
 
-    <div class="cv-item">
-      <div class="cv-item-header" onclick="toggleCV(this)">
-        <span class="cv-item-title">Grant Writer & Policy Advisor | Herencia VL</span>
-        <span class="cv-item-meta">2022–2023 <span class="cv-toggle">+</span></span>
-      </div>
-      <div class="cv-item-body"><div class="cv-item-content">
-        <p class="location">Bogotá, Colombia</p>
-        <p>Developed and submitted 10+ competitive grant proposals to international donors and foundations.</p>
-        <p>Strengthened 5+ public policy initiatives through strategic cross-sectoral partnerships.</p>
-        <p>Provided policy advisory support connecting civil society organizations with government stakeholders.</p>
-        <p>Built stakeholder engagement strategies to advance cultural heritage and community development objectives.</p>
-      </div></div>
-    </div>
-
-    <div class="cv-item">
-      <div class="cv-item-header" onclick="toggleCV(this)">
-        <span class="cv-item-title">Coordinator | UNESCO Chair on Freedom of Expression, Universidad de Los Andes</span>
-        <span class="cv-item-meta">2021 <span class="cv-toggle">+</span></span>
-      </div>
-      <div class="cv-item-body"><div class="cv-item-content">
-        <p class="location">Bogotá, Colombia</p>
-        <p>Boosted public participation in Chair activities by 30% through targeted outreach and communications strategy.</p>
-        <p>Coordinated academic events, research outputs, and multi-stakeholder communications.</p>
-        <p>Managed relationships with university administration, civil society partners, and international networks.</p>
-        <p>Supported research initiatives on media freedom, digital rights, and freedom of expression in Latin America.</p>
-      </div></div>
-    </div>
-
-    <div class="cv-item">
-      <div class="cv-item-header" onclick="toggleCV(this)">
-        <span class="cv-item-title">TRMS Specialist | Amazon</span>
-        <span class="cv-item-meta">2017–2018 <span class="cv-toggle">+</span></span>
-      </div>
-      <div class="cv-item-body"><div class="cv-item-content">
-        <p class="location">San José, Costa Rica</p>
-        <p>Investigated chargebacks and transactional risks across the European market, ensuring compliance and reducing financial exposure.</p>
-        <p>Designed and implemented new Standard Operating Procedures (SOPs) that streamlined fraud investigation workflows.</p>
-        <p>Improved cross-market consistency in risk assessment and fraud prevention protocols.</p>
-        <p>Collaborated with cross-functional teams to enhance transaction monitoring systems.</p>
-      </div></div>
-    </div>
-
-    <div class="cv-item">
-      <div class="cv-item-header" onclick="toggleCV(this)">
-        <span class="cv-item-title">Programme Assistant | UNEP, Regional Office for Latin America and the Caribbean</span>
-        <span class="cv-item-meta">2016–2017 <span class="cv-toggle">+</span></span>
-      </div>
-      <div class="cv-item-body"><div class="cv-item-content">
-        <p class="location">Panama City, Panama</p>
-        <p>Drafted rules of operation for regional chemicals and waste governance frameworks.</p>
-        <p>Authored 10+ technical documents supporting environmental policy alignment across Latin America and the Caribbean.</p>
-        <p>Led stakeholder engagement processes with ministry-level officials from member states.</p>
-        <p>Supported high-level intergovernmental meetings and regional environmental negotiations.</p>
-        <p>Contributed to implementation strategies for multilateral environmental agreements.</p>
-      </div></div>
-    </div>
-
-    <div class="cv-item">
-      <div class="cv-item-header" onclick="toggleCV(this)">
-        <span class="cv-item-title">Graduate Research Assistant | WWF, Global and Regional Policy Unit</span>
-        <span class="cv-item-meta">2015 <span class="cv-toggle">+</span></span>
-      </div>
-      <div class="cv-item-body"><div class="cv-item-content">
-        <p class="location">Gland, Switzerland</p>
-        <p>Produced 20+ policy briefs to support WWF's advocacy at UN SDG and G20 summits.</p>
-        <p>Co-authored internal science-policy manual on environmental governance.</p>
-        <p>Analyzed global policy frameworks for biodiversity, climate, and sustainable development.</p>
-        <p>Supported research on multi-stakeholder governance mechanisms in environmental policy.</p>
-      </div></div>
-    </div>
-
-    <div class="cv-item">
-      <div class="cv-item-header" onclick="toggleCV(this)">
-        <span class="cv-item-title">Earlier roles | Costa Rica</span>
-        <span class="cv-item-meta">2015–2016 <span class="cv-toggle">+</span></span>
-      </div>
-      <div class="cv-item-body"><div class="cv-item-content">
-        <p><span class="detail-label">Analyst & Interpreter | GIZ-DABIO (German International Cooperation):</span> Analytical and interpretation support for German–Costa Rican bilateral cooperation on biodiversity conservation. Trilingual facilitation (English, Spanish, German).</p>
-        <p><span class="detail-label">Research Assistant | IIHR/CAPEL (Inter-American Institute of Human Rights):</span> Research on electoral governance, democratic participation, and institutional strengthening in Latin America.</p>
-        <p><span class="detail-label">Auditor Assistant | Sustainable Agriculture Network (SAN):</span> On-site certification audits evaluating agricultural operations against SAN sustainability standards for Rainforest Alliance certification.</p>
-      </div></div>
-    </div>
-  </div>
-
-  <!-- ==================== CERTIFICATIONS ==================== -->
-  <div class="cv-section-group">
-    <p class="cv-group-label">Certifications & professional development</p>
-
-    <div class="cv-item">
-      <div class="cv-item-header" onclick="toggleCV(this)">
-        <span class="cv-item-title">AGI Strategy | BlueDot Impact</span>
-        <span class="cv-item-meta">2026 <span class="cv-toggle">+</span></span>
-      </div>
-      <div class="cv-item-body"><div class="cv-item-content">
-        <p>30-hour intensive: AI capability forecasting, threat modeling, defence-in-depth frameworks.</p>
-      </div></div>
-    </div>
-
-    <div class="cv-item">
-      <div class="cv-item-header" onclick="toggleCV(this)">
-        <span class="cv-item-title">Additional Certifications</span>
-        <span class="cv-item-meta">2017–2021 <span class="cv-toggle">+</span></span>
-      </div>
-      <div class="cv-item-body"><div class="cv-item-content">
-        <p><span class="detail-label">Project DPro</span> | PM4NGOs (2021)</p>
-        <p><span class="detail-label">Gestión Pública para el Desarrollo</span> | IDBX, Inter-American Development Bank (2020)</p>
-        <p><span class="detail-label">Diplomado en Victimología</span> | OIM/USAID (2020)</p>
-        <p><span class="detail-label">Evaluating Social Program Impact</span> | MITx-JPAL (2017)</p>
-      </div></div>
-    </div>
-  </div>
+  </div><!-- /cv-timeline -->
 
   <!-- ==================== SKILLS ==================== -->
   <div class="cv-section-group">
     <p class="cv-group-label">Skills & frameworks</p>
     <div class="cv-skills">
-      <span class="cv-skill-tag indigo">English</span>
-      <span class="cv-skill-tag indigo">Spanish</span>
-      <span class="cv-skill-tag indigo">German</span>
-      <span class="cv-skill-tag clay">Python</span>
-      <span class="cv-skill-tag clay">Claude Code</span>
-      <span class="cv-skill-tag clay">R</span>
-      <span class="cv-skill-tag clay">HTML/CSS/JS</span>
-      <span class="cv-skill-tag clay">Data visualization</span>
-      <span class="cv-skill-tag clay">Airtable</span>
+      <span class="cv-skill-tag clay">English</span>
+      <span class="cv-skill-tag clay">Spanish</span>
+      <span class="cv-skill-tag clay">German</span>
+      <span class="cv-skill-tag indigo">Python</span>
+      <span class="cv-skill-tag indigo">Claude Code</span>
+      <span class="cv-skill-tag indigo">R</span>
+      <span class="cv-skill-tag indigo">HTML/CSS/JS</span>
+      <span class="cv-skill-tag indigo">Data visualization</span>
+      <span class="cv-skill-tag indigo">Airtable</span>
       <span class="cv-skill-tag indigo">AI Governance</span>
       <span class="cv-skill-tag indigo">Technology Policy</span>
       <span class="cv-skill-tag indigo">Regulatory Analysis</span>
@@ -348,51 +380,43 @@
     </div>
   </div>
 
-  <!-- ==================== AWARDS ==================== -->
+  <!-- ==================== AWARDS (static display) ==================== -->
   <div class="cv-section-group">
     <p class="cv-group-label">Awards & scholarships</p>
-    <div class="cv-item">
-      <div class="cv-item-header" onclick="toggleCV(this)">
-        <span class="cv-item-title">View awards</span>
-        <span class="cv-item-meta"><span class="cv-toggle">+</span></span>
-      </div>
-      <div class="cv-item-body"><div class="cv-item-content">
-        <p><span class="detail-label">Departmental Award</span> | UC Berkeley Goldman School of Public Policy (2023–2025)</p>
-        <p><span class="detail-label">Colfuturo Scholarship</span> | Government of Colombia (2017–2019)</p>
-        <p><span class="detail-label">Partial Tuition Scholarship (50%)</span> | University for Peace (2014–2015)</p>
-      </div></div>
+    <div class="cv-awards-list">
+      <p><span class="detail-label">Departmental Award</span> — UC Berkeley Goldman School of Public Policy (2023–2025)</p>
+      <p><span class="detail-label">Colfuturo Scholarship</span> — Government of Colombia (2017–2019)</p>
+      <p><span class="detail-label">Partial Tuition Scholarship (50%)</span> — University for Peace (2014–2015)</p>
     </div>
-  </div>
-
-  <div class="btn-row">
-    <a href="cv/Marco_Schurer_Drews_CV.pdf" class="btn-primary" target="_blank">Download CV (PDF)</a>
-    <a href="https://linkedin.com/in/marco-schurer" class="btn-outline" target="_blank">LinkedIn</a>
   </div>
 </section>
 
 <!-- ============================================================
      WRITING
      ============================================================ -->
-<section id="writing" class="fade-in-section" aria-label="Writing">
+<section id="writing" aria-label="Writing">
   <p class="section-label">Writing</p>
-  <h2 class="section-title">Selected analysis</h2>
-  <p class="section-body">
-    Substantive work at the intersection of governance, technology, and institutional design.
-  </p>
+  <h2 class="section-title">Samples</h2>
 
   <div class="writing-list">
-    <a href="#" class="writing-item">
-      <span class="writing-title">What responsible scaling policies need next</span>
-      <span class="writing-tag">AI Governance</span>
-    </a>
-    <a href="#" class="writing-item">
-      <span class="writing-title">Five questions every AI deployment should answer</span>
-      <span class="writing-tag">Governance Design</span>
-    </a>
-    <a href="#" class="writing-item">
-      <span class="writing-title">Why global AI governance needs development expertise</span>
-      <span class="writing-tag">Global South</span>
-    </a>
+    <div class="fade-up">
+      <a href="#" class="writing-item">
+        <span class="writing-title">What responsible scaling policies need next</span>
+        <span class="writing-tag">AI Governance</span>
+      </a>
+    </div>
+    <div class="fade-up">
+      <a href="#" class="writing-item">
+        <span class="writing-title">Five questions every AI deployment should answer</span>
+        <span class="writing-tag">Governance Design</span>
+      </a>
+    </div>
+    <div class="fade-up">
+      <a href="#" class="writing-item">
+        <span class="writing-title">Why global AI governance needs development expertise</span>
+        <span class="writing-tag">Global South</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -423,16 +447,17 @@
 <!-- ============================================================
      CONTACT
      ============================================================ -->
-<section id="contact" class="fade-in-section" aria-label="Contact">
-  <p class="section-label">Contact</p>
-  <h2 class="section-title">Get in touch</h2>
-  <p class="section-body">
-    Open to conversations about AI governance, technology policy, and institutional design.
-  </p>
-  <div class="contact-links">
-    <a href="mailto:m.schurer.d@gmail.com">Email</a>
-    <a href="https://www.linkedin.com/in/marco-schurer/">LinkedIn</a>
-    <a href="https://github.com/marcoschurer">GitHub</a>
+<section id="contact" aria-label="Contact">
+  <div class="fade-up">
+    <p class="section-label">Contact</p>
+    <p class="section-body">
+      Open to conversations about AI governance, technology policy, and institutional design.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:m.schurer.d@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/marco-schurer/">LinkedIn</a>
+      <a href="https://github.com/marcoschurer">GitHub</a>
+    </div>
   </div>
 </section>
 

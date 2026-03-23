@@ -90,13 +90,15 @@ button:focus-visible,
 }
 
 /* ============================================================
-   NAV
+   NAV — frosted glass
    ============================================================ */
 nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--color-base);
+  background: rgba(240, 236, 226, 0.92);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   border-bottom: 0.5px solid transparent;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
@@ -118,29 +120,7 @@ nav.scrolled {
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
   text-decoration: none;
-}
-
-.monogram {
-  width: 30px;
-  height: 30px;
-  border: 1.5px solid var(--indigo-500);
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-heading);
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--indigo-500);
-  letter-spacing: -0.02em;
-  transition: background 0.2s, color 0.2s;
-}
-
-.nav-logo:hover .monogram {
-  background: var(--indigo-500);
-  color: #fff;
 }
 
 .nav-name {
@@ -204,7 +184,7 @@ nav.scrolled {
 }
 
 /* ============================================================
-   SECTIONS
+   SECTIONS — full-width backgrounds
    ============================================================ */
 section {
   max-width: var(--max-w);
@@ -212,23 +192,44 @@ section {
   padding: 3rem 2rem;
 }
 
-section + section {
-  border-top: 0.5px solid var(--color-border);
+/* Full-width background trick */
+#about {
+  background: #faf8f4;
+  box-shadow: 0 0 0 100vmax #faf8f4;
+  clip-path: inset(0 -100vmax);
+}
+
+#cv {
+  background: var(--color-base);
+  box-shadow: 0 0 0 100vmax var(--color-base);
+  clip-path: inset(0 -100vmax);
+}
+
+#writing {
+  background: var(--indigo-50);
+  box-shadow: 0 0 0 100vmax var(--indigo-50);
+  clip-path: inset(0 -100vmax);
+}
+
+#contact {
+  background: var(--clay-50);
+  box-shadow: 0 0 0 100vmax var(--clay-50);
+  clip-path: inset(0 -100vmax);
 }
 
 .section-label {
   font-family: var(--font-body);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--clay-500);
+  color: var(--color-text-muted);
   margin-bottom: 8px;
 }
 
 .section-title {
   font-family: var(--font-heading);
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
   line-height: 1.3;
   letter-spacing: -0.02em;
@@ -243,33 +244,44 @@ section + section {
 }
 
 /* ============================================================
-   SCROLL-TRIGGERED FADE-IN
+   SCROLL-TRIGGERED FADE-UP
    ============================================================ */
-.fade-in-section {
+.fade-up {
   opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.fade-in-section.is-visible {
+.fade-up.visible {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Stagger writing cards */
+.writing-list .fade-up:nth-child(2) { transition-delay: 0.1s; }
+.writing-list .fade-up:nth-child(3) { transition-delay: 0.2s; }
 
 /* ============================================================
    HERO
    ============================================================ */
 .hero {
-  padding: 5rem 2rem 3rem;
-  max-width: var(--max-w);
-  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  max-width: none;
+  margin: 0;
+  padding: 80px max(2rem, calc(50% - 360px)) 60px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
 }
 
 .hero h1 {
   font-family: var(--font-heading);
-  font-size: 36px;
+  font-size: 40px;
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1.15;
   letter-spacing: -0.03em;
   color: var(--color-text);
   margin-bottom: 8px;
@@ -285,24 +297,126 @@ section + section {
 
 /* Clay divider — the brand signature mark */
 .clay-rule {
-  width: 36px;
+  width: 40px;
   height: 2px;
-  background: var(--clay-300);
+  background: var(--clay-500);
   border: none;
+  border-radius: 1px;
   margin: 0 0 1.5rem;
 }
 
 .hero .tagline {
-  font-size: 15px;
+  font-family: var(--font-mono);
+  font-size: 14px;
   color: var(--color-text-muted);
-  line-height: 1.7;
-  max-width: 540px;
+  letter-spacing: 0.02em;
 }
 
-.hero .tagline em {
+/* ============================================================
+   CONSTELLATION SVG
+   ============================================================ */
+.constellation {
+  position: absolute;
+  top: 0;
+  right: 5%;
+  width: 220px;
+  height: 100%;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.c-node-indigo { fill: var(--indigo-500); }
+.c-node-clay { fill: var(--clay-500); }
+
+.c-line {
+  stroke: var(--indigo-500);
+  stroke-width: 0.5;
+  fill: none;
+}
+
+.c-float-1 { animation: float 7s ease infinite; }
+.c-float-2 { animation: float2 6s ease infinite 0.5s; }
+.c-float-3 { animation: float 8s ease infinite 1s; }
+.c-float-4 { animation: float2 7s ease infinite 1.5s; }
+.c-float-5 { animation: float 6s ease infinite 2s; }
+.c-float-6 { animation: float2 8s ease infinite 0.8s; }
+.c-float-7 { animation: float 7s ease infinite 2.5s; }
+
+.c-line-1 { animation: pulse-line 4s ease infinite; }
+.c-line-2 { animation: pulse-line 4s ease infinite 0.7s; }
+.c-line-3 { animation: pulse-line 4s ease infinite 1.4s; }
+.c-line-4 { animation: pulse-line 4s ease infinite 2.1s; }
+.c-line-5 { animation: pulse-line 4s ease infinite 0.3s; }
+.c-line-6 { animation: pulse-line 4s ease infinite 1.8s; }
+
+/* ============================================================
+   ABOUT — pull-quote with highlight sweep
+   ============================================================ */
+.pull-quote {
   font-family: var(--font-heading);
   font-style: italic;
-  color: var(--color-text-secondary);
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--indigo-500);
+  border-left: 2px solid var(--clay-500);
+  padding: 4px 0 4px 16px;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to right, rgba(160, 114, 94, 0.15), rgba(160, 114, 94, 0.15)) no-repeat left;
+  background-size: 0% 100%;
+}
+
+.pull-quote.fade-up {
+  transition: opacity 0.6s ease, transform 0.6s ease, background-size 1s ease 0.3s;
+}
+
+.pull-quote.visible {
+  background-size: 100% 100%;
+}
+
+.mono-line {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin-top: 12px;
+}
+
+/* ============================================================
+   CV — HEADING ROW
+   ============================================================ */
+.cv-heading-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.cv-heading-row .section-title {
+  margin-bottom: 0;
+}
+
+.cv-heading-buttons {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   CV — TIMELINE SPINE
+   ============================================================ */
+.cv-timeline {
+  position: relative;
+  padding-left: 20px;
+}
+
+.cv-timeline::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--color-border);
 }
 
 /* ============================================================
@@ -329,10 +443,32 @@ section + section {
 }
 
 .cv-item {
+  position: relative;
   border-bottom: 0.5px solid var(--color-border);
 }
 
 .cv-item:last-child { border-bottom: none; }
+
+/* Timeline dots on accordion items inside the timeline */
+.cv-timeline .cv-item::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 18px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-border);
+  background: #faf8f4;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.cv-timeline .cv-item:hover::before,
+.cv-timeline .cv-item.open::before {
+  border-color: var(--indigo-500);
+  background: var(--indigo-500);
+}
 
 .cv-item-header {
   display: flex;
@@ -390,11 +526,13 @@ section + section {
 .cv-item-body {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.35s ease, padding 0.35s ease;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.35s ease;
 }
 
 .cv-item.open .cv-item-body {
   max-height: 800px;
+  opacity: 1;
   padding-bottom: 1rem;
 }
 
@@ -414,7 +552,17 @@ section + section {
 
 .detail-label { font-weight: 500; color: var(--color-text); }
 
-/* Skills as tags */
+/* Awards — static display */
+.cv-awards-list {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-top: 4px;
+}
+
+.cv-awards-list p + p { margin-top: 6px; }
+
+/* Skills as tags — static, no hover */
 .cv-skills {
   margin-top: 1.5rem;
   display: flex;
@@ -429,6 +577,7 @@ section + section {
   padding: 3px 10px;
   border-radius: 4px;
   letter-spacing: 0.02em;
+  cursor: default;
 }
 
 .cv-skill-tag.indigo {
@@ -438,18 +587,12 @@ section + section {
 
 .cv-skill-tag.clay {
   background: var(--clay-50);
-  color: var(--clay-700);
+  color: var(--clay-500);
 }
 
 /* ============================================================
    BUTTONS
    ============================================================ */
-.btn-row {
-  display: flex;
-  gap: 10px;
-  margin-top: 2rem;
-}
-
 .btn-primary {
   display: inline-block;
   font-family: var(--font-body);
@@ -484,25 +627,59 @@ section + section {
 
 .btn-outline:hover { background: var(--indigo-50); color: var(--indigo-500); }
 
+.btn-sm {
+  padding: 7px 16px;
+  font-size: 11px;
+}
+
 /* ============================================================
-   WRITING
+   WRITING — cards with sweep hover
    ============================================================ */
-.writing-list { margin-top: 2rem; }
+.writing-list {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 
 .writing-item {
-  padding: 14px 0;
-  border-bottom: 0.5px solid var(--color-border);
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   gap: 1rem;
   text-decoration: none;
   color: inherit;
-  transition: color 0.2s;
+  padding: 16px;
+  background: #faf8f4;
+  border: 0.5px solid #cdd1dc;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.2s;
 }
 
-.writing-item:first-child { border-top: 0.5px solid var(--color-border); }
-.writing-item:hover { color: var(--indigo-500); }
+.writing-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--clay-500);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.writing-item:hover::before {
+  transform: scaleX(1);
+}
+
+.writing-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(28, 27, 24, 0.06);
+  color: var(--indigo-500);
+}
 
 .writing-title {
   font-family: var(--font-heading);
@@ -581,27 +758,31 @@ section + section {
 }
 
 /* ============================================================
-   CONTACT
+   CONTACT — button-style links
    ============================================================ */
 .contact-links {
   margin-top: 1rem;
   display: flex;
-  gap: 2rem;
+  gap: 12px;
 }
 
 .contact-links a {
+  display: inline-block;
   font-size: 14px;
   font-weight: 500;
   color: var(--indigo-500);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-color: var(--indigo-100);
-  transition: text-decoration-color 0.2s, color 0.2s;
+  background: #faf8f4;
+  border: 0.5px solid var(--color-border);
+  padding: 8px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.25s ease;
 }
 
 .contact-links a:hover {
-  text-decoration-color: var(--indigo-500);
-  color: var(--indigo-700);
+  background: var(--indigo-500);
+  color: #fff;
+  border-color: var(--indigo-500);
 }
 
 /* ============================================================
@@ -633,10 +814,9 @@ footer p {
    RESPONSIVE
    ============================================================ */
 @media (max-width: 640px) {
-  .hero h1 { font-size: 28px; }
   .hero { padding: 3.5rem 1.25rem 2rem; }
+  .hero h1 { font-size: 30px; }
   section { padding: 2rem 1.25rem; }
-  .nav-name { display: none; }
 
   .nav-toggle { display: flex; flex-direction: column; }
 
@@ -646,7 +826,9 @@ footer p {
     top: 100%;
     left: 0;
     right: 0;
-    background: var(--color-base);
+    background: rgba(240, 236, 226, 0.96);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
     flex-direction: column;
     padding: 1rem 2rem 1.5rem;
     gap: 16px;
@@ -660,13 +842,29 @@ footer p {
 
   .nav-links a { font-size: 14px; }
 
+  .constellation { display: none; }
+
+  .cv-heading-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
   .cv-item-meta { display: none; }
-  .writing-item { flex-direction: column; gap: 4px; }
+
+  .writing-item { flex-direction: column; gap: 8px; }
   .writing-tag { align-self: flex-start; }
+
+  .contact-links { flex-wrap: wrap; gap: 8px; }
+
+  footer {
+    flex-direction: column;
+    gap: 4px;
+  }
 }
 
 /* ============================================================
-   ENTRANCE ANIMATIONS
+   ENTRANCE ANIMATIONS — hero
    ============================================================ */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(8px); }
@@ -681,6 +879,24 @@ footer p {
 .hero .tagline { animation-delay: 0.18s; }
 
 /* ============================================================
+   CONSTELLATION KEYFRAMES
+   ============================================================ */
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(3px, -4px); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-2px, 5px); }
+}
+
+@keyframes pulse-line {
+  0%, 100% { opacity: 0.08; }
+  50% { opacity: 0.18; }
+}
+
+/* ============================================================
    REDUCED MOTION
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
@@ -692,10 +908,14 @@ footer p {
 
   html { scroll-behavior: auto; }
 
-  .fade-in-section {
+  .fade-up {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .pull-quote {
+    background-size: 100% 100%;
   }
 }
 
@@ -703,7 +923,7 @@ footer p {
    PRINT
    ============================================================ */
 @media print {
-  nav, .nav-toggle, .skip-link, .btn-row, .contact-links { display: none; }
+  nav, .nav-toggle, .skip-link, .cv-heading-buttons, .contact-links, .constellation { display: none; }
 
   body {
     background: #fff;
@@ -715,6 +935,9 @@ footer p {
   .hero, section {
     max-width: 100%;
     padding: 1rem 0;
+    background: none !important;
+    box-shadow: none !important;
+    clip-path: none !important;
   }
 
   section + section { border-top: 0.5px solid #ccc; }
@@ -730,9 +953,14 @@ footer p {
   .cv-item-body {
     max-height: none;
     overflow: visible;
+    opacity: 1;
     padding-bottom: 0.5rem;
   }
 
+  .cv-timeline { padding-left: 0; }
+  .cv-timeline::before { display: none; }
+  .cv-timeline .cv-item::before { display: none; }
+
   .projects-section { display: none; }
-  .fade-in-section { opacity: 1; transform: none; }
+  .fade-up { opacity: 1; transform: none; }
 }

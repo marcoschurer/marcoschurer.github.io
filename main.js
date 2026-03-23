@@ -42,7 +42,6 @@
   /* --------------------------------------------------------
      CV ACCORDION — each item toggles independently
      -------------------------------------------------------- */
-  // Global function for onclick handlers in HTML
   window.toggleCV = function (header) {
     var item = header.parentElement;
     item.classList.toggle('open');
@@ -91,28 +90,26 @@
   });
 
   /* --------------------------------------------------------
-     SCROLL-TRIGGERED FADE-IN (IntersectionObserver)
+     SCROLL-TRIGGERED FADE-UP (IntersectionObserver)
      -------------------------------------------------------- */
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  var fadeTargets = document.querySelectorAll('.fade-in-section');
+  var fadeTargets = document.querySelectorAll('.fade-up');
 
   if (prefersReducedMotion) {
-    // Show everything immediately
     fadeTargets.forEach(function (el) {
-      el.classList.add('is-visible');
+      el.classList.add('visible');
     });
   } else {
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
+          entry.target.classList.add('visible');
           observer.unobserve(entry.target);
         }
       });
     }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -40px 0px'
+      threshold: 0.15
     });
 
     fadeTargets.forEach(function (el) {
