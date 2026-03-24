@@ -398,24 +398,50 @@
   <p class="section-label">Writing</p>
   <h2 class="section-title">Samples</h2>
 
-  <div class="writing-list">
-    <div class="fade-up">
-      <a href="#" class="writing-item">
-        <span class="writing-title">What responsible scaling policies need next</span>
-        <span class="writing-tag">AI Governance</span>
-      </a>
+  <div class="writing-accordion">
+    <!-- Opinion bucket — open by default -->
+    <div class="writing-bucket open">
+      <div class="writing-bucket-header" onclick="toggleWritingBucket(this)">
+        <span class="writing-bucket-label">Opinion</span>
+        <span class="cv-toggle">+</span>
+      </div>
+      <div class="writing-bucket-body">
+        <a href="/writing/connectivity-oped.html" class="writing-item">
+          <div class="writing-item-info">
+            <span class="writing-title">Connectivity+ in the Philippines: Transforming Emergency Preparedness and Response</span>
+            <span class="writing-teaser">When Super Typhoon Haiyan devastated the Philippines, the collapse of communication networks proved catastrophic — a lesson in why resilient connectivity must combine infrastructure with local governance.</span>
+          </div>
+          <span class="writing-year">2025</span>
+        </a>
+      </div>
     </div>
-    <div class="fade-up">
-      <a href="#" class="writing-item">
-        <span class="writing-title">Five questions every AI deployment should answer</span>
-        <span class="writing-tag">Governance Design</span>
-      </a>
+
+    <!-- Policy Memos bucket -->
+    <div class="writing-bucket">
+      <div class="writing-bucket-header" onclick="toggleWritingBucket(this)">
+        <span class="writing-bucket-label">Policy Memos</span>
+        <span class="cv-toggle">+</span>
+      </div>
+      <div class="writing-bucket-body">
+        <a href="/writing/caribbean-fisheries-memo.html" class="writing-item">
+          <div class="writing-item-info">
+            <span class="writing-title">Enhancing the Resilience of Caribbean Artisanal Fishers to Climate Change and Extreme Weather Events</span>
+            <span class="writing-teaser">A policy analysis addressing how Caribbean artisanal fishers can build resilience to climate change through early warning systems, insurance schemes, and community-driven capacity building.</span>
+          </div>
+          <span class="writing-year">2024</span>
+        </a>
+      </div>
     </div>
-    <div class="fade-up">
-      <a href="#" class="writing-item">
-        <span class="writing-title">Why global AI governance needs development expertise</span>
-        <span class="writing-tag">Global South</span>
-      </a>
+
+    <!-- Public Commentary bucket — empty -->
+    <div class="writing-bucket">
+      <div class="writing-bucket-header" onclick="toggleWritingBucket(this)">
+        <span class="writing-bucket-label">Public Commentary</span>
+        <span class="cv-toggle">+</span>
+      </div>
+      <div class="writing-bucket-body">
+        <p class="writing-coming-soon">Coming soon</p>
+      </div>
     </div>
   </div>
 </section>

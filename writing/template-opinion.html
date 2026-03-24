@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[TITLE] — Marco Schürer Drews</title>
+
+<meta name="description" content="[DESCRIPTION]">
+<meta property="og:title" content="[TITLE] — Marco Schürer Drews">
+<meta property="og:type" content="article">
+
+<link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<nav id="nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="nav-name">Marco Schürer Drews</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links" id="nav-links" role="list">
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#cv">CV</a></li>
+      <li><a href="/#writing" class="active">Writing</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="article-container">
+  <aside class="article-sidebar">
+    <h1>[TITLE]</h1>
+    <p class="article-year">[YEAR]</p>
+    <p class="article-author">Marco Schürer Drews</p>
+    <div class="article-tags">
+      <span class="writing-tag">[Tag 1]</span>
+      <span class="writing-tag">[Tag 2]</span>
+    </div>
+  </aside>
+
+  <div class="article-body">
+    <p>[Body text goes here. Use <sup><a href="#fn1">1</a></sup> for footnotes.]</p>
+
+    <div class="footnotes">
+      <h3>Notes</h3>
+      <ol>
+        <li id="fn1">[Source description.] <a href="[URL]" target="_blank" rel="noopener">[domain]</a> <a href="#fnref1">&#8617;</a></li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="article-back">
+  <a href="/#writing">&larr; Back to writing</a>
+</div>
+
+<footer>
+  <p>&copy; 2026 Marco Schürer Drews</p>
+  <p class="footer-accent"><i>"We shape our tools, and thereafter our tools shape us."</i> — John Culkin writing about McLuhan</p>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function () {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+  var navToggle = document.querySelector('.nav-toggle');
+  var navLinksEl = document.querySelector('.nav-links');
+  navToggle.addEventListener('click', function () {
+    var isOpen = navToggle.classList.toggle('open');
+    navLinksEl.classList.toggle('open', isOpen);
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+  navLinksEl.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      navToggle.classList.remove('open');
+      navLinksEl.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+</script>
+</body>
+</html>

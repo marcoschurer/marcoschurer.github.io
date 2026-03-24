@@ -48,6 +48,14 @@
   };
 
   /* --------------------------------------------------------
+     WRITING ACCORDION — each bucket toggles independently
+     -------------------------------------------------------- */
+  window.toggleWritingBucket = function (header) {
+    var bucket = header.parentElement;
+    bucket.classList.toggle('open');
+  };
+
+  /* --------------------------------------------------------
      MOBILE NAV TOGGLE
      -------------------------------------------------------- */
   var navToggle = document.querySelector('.nav-toggle');
