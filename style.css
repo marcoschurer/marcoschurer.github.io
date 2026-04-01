@@ -1177,7 +1177,20 @@ footer p {
     gap: 0.75rem;
   }
 
-  .cv-item-meta { display: none; }
+  .cv-item-header {
+    flex-wrap: wrap;
+    gap: 2px;
+  }
+
+  .cv-item-title {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .cv-item-meta {
+    margin-left: 0;
+    font-size: 12px;
+  }
 
   .writing-item { flex-direction: column; gap: 8px; }
   .writing-year { align-self: flex-start; }
