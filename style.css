@@ -56,8 +56,19 @@ body {
 
 ::selection { background: #3d4f7c22; }
 
-a { color: var(--indigo-500); text-decoration: none; transition: color 0.2s; }
-a:hover { color: var(--indigo-700); }
+a {
+  color: var(--indigo-500);
+  text-decoration: none;
+  background-image: linear-gradient(var(--clay-500), var(--clay-500));
+  background-size: 0% 1px;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s ease, color 0.2s;
+}
+a:hover {
+  color: var(--indigo-700);
+  background-size: 100% 1px;
+}
 
 /* ============================================================
    ACCESSIBILITY
@@ -121,6 +132,11 @@ nav.scrolled {
   display: flex;
   align-items: center;
   text-decoration: none;
+  background-image: none;
+}
+
+.nav-logo:hover {
+  background-image: none;
 }
 
 .nav-name {
@@ -138,18 +154,38 @@ nav.scrolled {
 }
 
 .nav-links a {
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 500;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 400;
   color: var(--color-text-muted);
   text-decoration: none;
   letter-spacing: 0.02em;
   transition: color 0.2s;
+  background-image: none;
+  position: relative;
 }
 
-.nav-links a:hover,
+.nav-links a:hover {
+  color: var(--indigo-500);
+  background-image: none;
+}
+
 .nav-links a.active {
   color: var(--indigo-500);
+  background-image: none;
+}
+
+/* Clay dot under active nav link */
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--clay-500);
 }
 
 /* Mobile nav toggle */
@@ -218,9 +254,9 @@ section {
 }
 
 .section-label {
-  font-family: var(--font-body);
+  font-family: var(--font-mono);
   font-size: 10px;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-text-muted);
@@ -312,16 +348,24 @@ section {
   letter-spacing: 0.02em;
 }
 
+.location-line {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+  margin-top: 6px;
+}
+
 /* ============================================================
    CONSTELLATION SVG
    ============================================================ */
 .constellation {
   position: absolute;
   top: 0;
-  right: 5%;
-  width: 220px;
+  right: -5%;
+  width: 380px;
   height: 100%;
-  opacity: 0.12;
+  opacity: 0.22;
   pointer-events: none;
 }
 
@@ -360,6 +404,7 @@ section {
   color: var(--indigo-500);
   border-left: 2px solid var(--clay-500);
   padding: 4px 0 4px 16px;
+  margin-left: -20px;
   margin-bottom: 1.5rem;
   background: linear-gradient(to right, rgba(160, 114, 94, 0.15), rgba(160, 114, 94, 0.15)) no-repeat left;
   background-size: 0% 100%;
@@ -431,9 +476,9 @@ section {
 }
 
 .cv-group-label {
-  font-family: var(--font-body);
+  font-family: var(--font-mono);
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-text-muted);
@@ -498,8 +543,8 @@ section {
 }
 
 .cv-item-meta {
-  font-family: var(--font-body);
-  font-size: 13px;
+  font-family: var(--font-mono);
+  font-size: 12px;
   color: var(--color-text-muted);
   white-space: nowrap;
   flex-shrink: 0;
@@ -593,6 +638,14 @@ section {
 /* ============================================================
    BUTTONS
    ============================================================ */
+.btn-primary, .btn-outline, .writing-item, .contact-links a, .skip-link, .project-card {
+  background-image: none;
+}
+
+.btn-primary:hover, .btn-outline:hover, .writing-item:hover, .contact-links a:hover, .skip-link:hover, .project-card:hover {
+  background-image: none;
+}
+
 .btn-primary {
   display: inline-block;
   font-family: var(--font-body);
@@ -662,9 +715,9 @@ section {
 .writing-bucket-header:hover .cv-toggle { color: var(--indigo-500); }
 
 .writing-bucket-label {
-  font-family: var(--font-body);
+  font-family: var(--font-mono);
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-text-secondary);
@@ -692,11 +745,19 @@ section {
 }
 
 .writing-bucket.open .writing-bucket-body {
-  max-height: 400px;
+  max-height: 600px;
   opacity: 1;
 }
 
+/* Two-column grid for writing cards on desktop */
+.writing-bucket-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
 .writing-coming-soon {
+  grid-column: 1 / -1;
   font-family: var(--font-body);
   font-size: 13px;
   color: var(--color-text-muted);
@@ -712,7 +773,6 @@ section {
   text-decoration: none;
   color: inherit;
   padding: 16px;
-  margin-bottom: 12px;
   background: #faf8f4;
   border: 0.5px solid #cdd1dc;
   border-radius: 8px;
@@ -1108,21 +1168,12 @@ footer {
   margin: 0 auto;
   padding: 2rem;
   border-top: 0.5px solid var(--color-border);
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
 }
 
 footer p {
-  font-size: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
   color: var(--color-text-muted);
-}
-
-.footer-accent {
-  font-family: var(--font-heading);
-  font-style: italic;
-  font-size: 13px;
-  color: var(--clay-500);
 }
 
 /* ============================================================
@@ -1137,6 +1188,14 @@ footer p {
 
   .article-sidebar {
     position: static;
+  }
+
+  .writing-bucket-body {
+    grid-template-columns: 1fr;
+  }
+
+  .pull-quote {
+    margin-left: 0;
   }
 }
 
@@ -1196,11 +1255,6 @@ footer p {
   .writing-year { align-self: flex-start; }
 
   .contact-links { flex-wrap: wrap; gap: 8px; }
-
-  footer {
-    flex-direction: column;
-    gap: 4px;
-  }
 }
 
 /* ============================================================
@@ -1211,12 +1265,13 @@ footer p {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.hero h1, .hero .subtitle, .clay-rule, .hero .tagline {
+.hero h1, .hero .subtitle, .clay-rule, .hero .tagline, .hero .location-line {
   animation: fadeUp 0.45s ease-out both;
 }
 .hero .subtitle { animation-delay: 0.06s; }
 .clay-rule { animation-delay: 0.12s; }
 .hero .tagline { animation-delay: 0.18s; }
+.hero .location-line { animation-delay: 0.24s; }
 
 /* ============================================================
    CONSTELLATION KEYFRAMES
